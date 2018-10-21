@@ -33,7 +33,12 @@ function inverse (frac) {
 }
 function reduce (numerator, denominator){
     var gcdv = gcd(numerator,denominator);
-    return [numerator/gcdv, denominator/gcdv];
+    var ret = [numerator/gcdv, denominator/gcdv];
+    if (ret[1] < 0) {
+        ret[0] *= -1;
+        ret[1] *= -1;
+    }
+    return ret;
 }
 function textify (val, sqrt) {
     if (val == 0 || sqrt == 0) {
@@ -158,4 +163,43 @@ function cot (num, den) {
         dval = "/" + dval;
     }
     return ((trigVal < -0.01) ? "-" : "") + textify(red[0], r1[1]) + dval;
+}
+
+function randBetween (lower, upper) {
+    return Math.floor(Math.random() * (upper - lower + 1)) + lower;
+}
+
+var trigFuncs = {
+    sin: sin,
+    cos: cos,
+    tan: tan,
+    csc: csc,
+    sec: sec,
+    cot: cot
+};
+var probArr = [];
+for (var i = 0; i < probs; i ++) {
+    var funcToUse = functions[randBetween(0, functions.length - 1)];
+    var den = denoms[randBetween(0, denoms.length - 1)];
+    var num = randBetween(den * bounds[0], den * bounds[1]);
+    var frac = reduce(num, den);
+    var ans = trigFuncs[funcToUse](frac[0], frac[1]);
+    var dval = frac[1];
+    if (dval == 1) {
+        dval = "";
+    } else {
+        dval = "/" + dval
+    }
+    if (frac[0] == 1 && dval != 1) {
+        frac[0] = "";
+    } else if (frac[0] == -1 && dval != 1) {
+        frac[0] = "-";
+    }
+    if (frac[0] != 0) {
+        frac[0] += "π";
+    }
+    probArr.push({
+        value: funcToUse + "(" + frac[0] + dval + ")",
+        answer: ans
+    });
 }

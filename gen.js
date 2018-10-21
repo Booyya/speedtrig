@@ -3,8 +3,6 @@ var denoms = [4, 6];
 var bounds = [-3, 3];
 var probs = 12;
 
-
-var probsPerPage = 12;
 var prod = 1;
 function gcd (a, b) {
     return b ? gcd(b, a % b) : a;
@@ -185,18 +183,18 @@ for (var i = 0; i < probs; i ++) {
     var frac = reduce(num, den);
     var ans = trigFuncs[funcToUse](frac[0], frac[1]);
     var dval = frac[1];
+    if (frac[0] == 1) {
+        frac[0] = "";
+    } else if (frac[0] == -1) {
+        frac[0] = "-";
+    }
     if (dval == 1) {
         dval = "";
     } else {
         dval = "/" + dval
     }
-    if (frac[0] == 1 && dval != 1) {
-        frac[0] = "";
-    } else if (frac[0] == -1 && dval != 1) {
-        frac[0] = "-";
-    }
-    if (frac[0] != 0) {
-        frac[0] += "π";
+    if (frac[0] !== 0) {
+        frac[0] += "pi";
     }
     probArr.push({
         value: funcToUse + "(" + frac[0] + dval + ")",

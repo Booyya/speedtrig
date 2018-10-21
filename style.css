@@ -1,0 +1,44 @@
+.wrapper {
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	    -ms-flex-flow: row wrap;
+	        flex-flow: row wrap;
+}
+.header {
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+}
+.math {
+	font-size: 25px;
+}
+.answer {
+	color: red;
+}
+@media all {
+	.break {
+		display: block;
+		padding-bottom: 50%;
+	}
+	.item {
+		width: 33%;
+		display: block;
+		height: 20vh;
+	}
+}
+@media print {
+	.break {
+		display: none;
+		padding-bottom: 0;
+	}
+	.wrapper {
+		page-break-inside: avoid;
+	}
+	.item {
+		width: 50%;
+		height: 14.5vh;
+	}
+	.noprint {
+		display: none;
+	}
+}

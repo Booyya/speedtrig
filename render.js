@@ -7,7 +7,7 @@ function formatProb (prob) {
 	}
 	var ret = "$\\" + parsed[1];
 	if (parsed[2]) {
-		ret += "(" + parsed[2];
+		ret += "\\left(" + parsed[2];
 	} else {
 		ret += " ";
 	}
@@ -24,7 +24,7 @@ function formatProb (prob) {
 		ret += "}{" + parsed[5] + "}";
 	}
 	if (parsed[2]) {
-		ret += ")";
+		ret += "\\right)";
 	}
 	return ret + "$";
 }

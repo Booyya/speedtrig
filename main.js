@@ -67,7 +67,7 @@ function sin (num, den) {
     }     else {
         dval = "/" + dval;
     }
-    return ((trigVal < -0.01) ? "-" : "") + textify(red[0], r1[1]) + dval;
+    return ((trigVal < -0.0001) ? "-" : "") + textify(red[0], r1[1]) + dval;
 }
 function cos (num, den) {
     var trigVal = Math.cos(num * Math.PI / den);
@@ -83,7 +83,7 @@ function cos (num, den) {
     } else {
         dval = "/" + dval;
     }
-    return ((trigVal < -0.01) ? "-" : "") + textify(red[0], r1[1]) + dval;
+    return ((trigVal < -0.0001) ? "-" : "") + textify(red[0], r1[1]) + dval;
 }
 function tan (num, den) {
     var trigVal = Math.tan(num * Math.PI / den);
@@ -102,11 +102,11 @@ function tan (num, den) {
     } else {
         dval = "/" + dval;
     }
-    return ((trigVal < -0.01) ? "-" : "") + textify(red[0], r1[1]) + dval;
+    return ((trigVal < -0.0001) ? "-" : "") + textify(red[0], r1[1]) + dval;
 }
 function csc (num, den) {
     var trigVal = Math.sin(num * Math.PI / den);
-    if (trigVal == 0) {
+    if (Math.abs(trigVal) < 0.0001) {
         return "Undefined";
     }
     trigVal = 1 / trigVal;
@@ -122,11 +122,11 @@ function csc (num, den) {
     } else {
         dval = "/" + dval;
     }
-    return ((trigVal < -0.01) ? "-" : "") + textify(red[0], r1[1]) + dval;
+    return ((trigVal < -0.0001) ? "-" : "") + textify(red[0], r1[1]) + dval;
 }
 function sec (num, den) {
     var trigVal = Math.cos(num * Math.PI / den);
-    if (trigVal == 0) {
+    if (Math.abs(trigVal) < 0.0001) {
         return "Undefined";
     }
     trigVal = 1 / trigVal;
@@ -142,11 +142,11 @@ function sec (num, den) {
     } else {
         dval = "/" + dval;
     }
-    return ((trigVal < -0.01) ? "-" : "") + textify(red[0], r1[1]) + dval;
+    return ((trigVal < -0.0001) ? "-" : "") + textify(red[0], r1[1]) + dval;
 }
 function cot (num, den) {
     var trigVal = Math.tan(num * Math.PI / den);
-    if (trigVal == 0) {
+    if (Math.abs(trigVal) < 0.0001) {
         return "Undefined";
     }
     trigVal = 1 / trigVal;
@@ -162,7 +162,7 @@ function cot (num, den) {
     }     else {
         dval = "/" + dval;
     }
-    return ((trigVal < -0.01) ? "-" : "") + textify(red[0], r1[1]) + dval;
+    return ((trigVal < -0.0001) ? "-" : "") + textify(red[0], r1[1]) + dval;
 }
 
 function randBetween (lower, upper) {

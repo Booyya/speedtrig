@@ -11,3 +11,7 @@ opbtn.addEventListener("click", function () {
 		opbox.className = "hidden";
 	}
 });
+var hideops = document.getElementById("ophide");
+hideops.addEventListener("click", function () {
+	opbox.className = "hidden";
+});

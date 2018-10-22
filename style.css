@@ -15,6 +15,9 @@
 .answer {
 	color: red;
 }
+.controls {
+	position: absolute;
+}
 @media all {
 	.break {
 		display: block;

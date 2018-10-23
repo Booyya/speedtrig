@@ -19,7 +19,7 @@
 	position: absolute;
 }
 .hidden {
-	display: none;
+	display: none !important;
 }
 .optionbox {
 	display: block;
@@ -30,6 +30,9 @@
 	background-color: #FFFFDD;
 	padding: 10px;
 	border-radius: 5px;
+}
+.inline {
+	display: inline;
 }
 @media all {
 	.break {

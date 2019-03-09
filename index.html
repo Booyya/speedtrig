@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Speed Trig Practice</title>
+  	<link rel="stylesheet" href="style.css" type="text/css">
+  	<script type="text/x-mathjax-config">
+  	  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  	</script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  	<script src="options.js"></script>
+  	<script src="gen.js"></script>
+  	<script defer src="render.js"></script>
+	<script>
+		function timerStart(){
+			var time = document.forms["timer"]["timerBox"].value.slice(0,1);
+			var lastDig = document.forms["timer"]["timerBox"].value.slice(2, 4);
+			if((lastDig == "00")&&(time != "0")){
+				time = (parseInt(time) - 1).toString();
+				lastDig = "59";
+			}
+			else{
+				lastDig = (parseInt(lastDig)-1).toString();
+				if(lastDig.length < 2){
+					lastDig = "0" + lastDig;
+				}
+			}
+			document.forms["timer"]["timerBox"].value = time + ":" + lastDig;
+			if(document.forms["timer"]["timerBox"].value == "0:00"){
+				alert("Time is up!");
+				clearTimeout(timez);
+				document.forms["timer"]["timerBox"].value = "2:00";
+			}
+		}
+	</script>
+  </head>
+  <body>
+  	<div class="wrapper" id="problems">
+  		<div class="header">
+  			<p>Speed Trig Practice</p>
+			<form name = "timer">
+				<input name = "timerButton" type = "button" value = "Start a Timer?" onClick = "timez = setInterval(timerStart, 1000);"> <br>
+				<input name = "timerBox" type = "text" value = "2:00" size = "1px" style="text-align:center;" r> <br>
+			</form>
+  		</div>
+	</div>
+  	<div class="break"></div>
+  	<div class="wrapper" id="answers">
+  		<div class="header">
+  			<p>Speed Trig Answers</p>
+  		</div>
+  	</div>
+  </body>
+</html>
